@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Edit Character</h1>
+    <form action="/characters/{{ character['id'] }}" method="POST">
+        <label for="">Name:</label>
+        <input type="text" name="name" value="{{ character['name'] }}">
+
+        <label for="">Image URL:</label>
+        <input type="text" name="image_url" value="{{ character['image_url'] }}">
+
+        <label for="">Weapons:</label>
+        <input type="text" name="weapons" value="{{ character['weapons'] }}">
+
+        <label for="">Species:</label>
+        <input type="text" name="species" value="{{ character['species'] }}">
+
+        <label for="">Catchphrase:</label>
+        <input type="text" name="catchphrase" value="{{ character['catchphrase'] }}">
+
+        <label for="">Abilities:</label>
+        <input type="text" name="abilities" value="{{ character['abilities'] }}">
+
+        <button>Update Character</button>
+    </form>
+</body>
+</html>

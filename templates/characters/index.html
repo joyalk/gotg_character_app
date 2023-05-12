@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Guardians of the Galaxy</h1>
+
+    {% if current_user() %}
+    <h3>Welcome to the Guardians of the Galaxy Character Page {{ current_user()['first_name'] }}</h3>
+
+    <section class="controls">
+        <form action="/sessions/delete" method="POST">
+            <button>Log out</button>
+        </form>
+
+        <a href="/characters/new">Add character</a>
+    </section>
+
+    <section class="characters">
+        {% for character in characters: %}
+        <section class="character">
+            <header>
+                <h2>{{ character['name'] }}</h2>
+
+                <section class="controls">
+                    <a href="/characters/{{ character['id'] }}/edit">Edit</a>
+
+                    <form action="/characters/{{ character['id'] }}/delete" method="POST">
+                        <button>Delete</button>
+                    </form>
+                </section>
+            </header>
+
+            <img src="{{ character['image_url'] }}" alt="">
+            <p>Weopons: {{ character['weopons'] }}</p>
+            <p>Species: {{ character['species'] }}</p>
+            <p>Catchphrase: {{ character['catchphrase'] }}</p>
+            <p>Abilities: {{ character['abilities'] }}</p>
+        </section>
+        {% endfor %}
+    </section>
+    {% else %}
+    <a href="/users/new">Sign up</a>
+    <a href="/sessions/new">Log in</a>
+    {% endif %}
+</body>
+</html>
