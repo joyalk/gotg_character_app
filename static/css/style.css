@@ -1,0 +1,59 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(102, 52, 202);
+}
+
+.characters {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+}
+
+a,
+button {
+    border: 3px solid #1F51FF;
+    padding: 0.25rem 0.5rem;
+    background-color: rgb(255, 16, 240);
+    color: white;
+    font-size: 0.8rem;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.character h2 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.character img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.character header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: limegreen;
+    padding: 0 1rem;
+}
+
+.controls {
+    display: flex;
+    gap: 0.5rem;
+}
+
+h1 {
+    color: #F7F06D;
+}
+
+h3 {
+    color: #FF5F1F;
+}
+
+.character p {
+    color: #0FF0FC;
+}
