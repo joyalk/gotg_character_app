@@ -10,8 +10,8 @@ def get_character(id):
     characters = sql("SELECT * FROM characters WHERE id = %s", [id])
     return characters[0]
 
-def update_character(name, image_url, weapons, species, catchphrase, abilities):
+def update_character(id, name, image_url, weapons, species, catchphrase, abilities):
     sql('UPDATE characters SET name=%s, image_url=%s, weapons=%s, species=%s, catchphrase=%s, abilities=%s WHERE id=%s RETURNING *', [name, image_url, weapons, species, catchphrase, abilities, id])
 
-def delete_food (id):
+def delete_character(id):
     sql('DELETE FROM characters WHERE id=%s RETURNING *', [id])
