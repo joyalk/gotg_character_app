@@ -19,6 +19,7 @@
         </form>
 
         <a href="/characters/new">Add character</a>
+        <a href="/characters/comment">Show Comments</a>
     </section>
 
     <section class="characters">
@@ -33,6 +34,10 @@
                     <form action="/characters/{{ character['id'] }}/delete" method="POST">
                         <button>Delete</button>
                     </form>
+
+                    <section class="controls">
+                        <a href="/characters/{{ character['id'] }}/comment">Comment</a>
+                    </form>
                 </section>
             </header>
 
@@ -41,6 +46,7 @@
             <p>Species: {{ character['species'] }}</p>
             <p>Catchphrase: {{ character['catchphrase'] }}</p>
             <p>Abilities: {{ character['abilities'] }}</p>
+            
         </section>
         {% endfor %}
     </section>

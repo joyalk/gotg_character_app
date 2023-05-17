@@ -27,3 +27,10 @@ CREATE TABLE users(
   email TEXT,
   password_digest TEXT
 );
+
+CREATE TABLE comments(
+  id SERIAL PRIMARY KEY,
+  user_id INTEGER,
+  character_id INTEGER,
+  comment TEXT
+);

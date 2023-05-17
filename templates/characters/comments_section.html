@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Comments</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <h1>Comments</h1>
+
+    {% for character_name, comments in character_comment_map.items() %}
+    <div class="character-card">
+        <h2>Character Name: {{ character_name }}</h2>
+        <ul>
+            {% for comment in comments %}
+            <li>{{ comment }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endfor %}
+</body>
+</html>

@@ -1,5 +1,5 @@
 from flask import render_template, request, redirect
-from models.characters import all_characters, get_character, create_character, update_character, delete_character
+from models.characters import all_characters, get_character, create_character, update_character, delete_character, add_comment_character, get_comments, get_all_comments
 from services.sessions_info import current_user
 
 def index():
@@ -36,3 +36,29 @@ def update(id):
 def delete(id):
     delete_character(id)
     return redirect('/')
+
+def comments(id):
+    character = get_character(id)
+    comments = get_comments(id)
+    return render_template('characters/comment.html', character=character, comments=comments)
+    
+def add_comment(id):    
+    comment = request.form.get('comment', '')
+    add_comment_character(id, comment)
+    return redirect('/')
+
+def display_comments():
+    all_comments = get_all_comments()
+
+    character_comment_map = {}
+
+    for item in all_comments:
+        character_id = item['character_id']
+        comment = item['comment']
+        character_name = get_character(character_id)['name']
+
+        if str(character_name) not in character_comment_map:
+            character_comment_map[str(character_name)] = []
+        
+        character_comment_map[str(character_name)].append(comment)
+    return render_template('characters/comments_section.html',character_comment_map=character_comment_map)
