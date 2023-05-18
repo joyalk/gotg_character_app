@@ -1,3 +1,6 @@
+from dotenv import load_dotenv
+load_dotenv()
+
 import os
 from flask import Flask, redirect
 from routes.characters_routes import characters_routes
@@ -8,6 +11,7 @@ SECRET_KEY = os.environ.get('FLASK_SECRET_KEY', 'gbddshajfnigjkndfkj')
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = SECRET_KEY
+
 
 app.register_blueprint(characters_routes, url_prefix='/characters')
 app.register_blueprint(users_routes, url_prefix='/users')
